@@ -85,6 +85,8 @@ def random_RSA(limit = 10 ** 5) -> Tuple[Tuple[int, int], Tuple[int, int]]:
     mxn = limit
     primes = sieve(mxn)
     p, q = random.choices(primes, k=2)
+    print(f'p = {p}')
+    print(f'q = {q}')
     return RSA(p, q)
 
 if __name__ == '__main__':
