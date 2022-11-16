@@ -25,10 +25,13 @@ def attack(p: int, q: int, e: int) -> Tuple[Tuple[int, int], Tuple[int, int]]:
 
 if __name__ == "__main__":
     from RSA import random_RSA, RSA
-    from factorization import get_factors
+    from factorization import get_factors, PollardRho, dixon_factorization
     rsa = random_RSA()
     print(rsa)
     e, n = rsa[0]
+    
+    print()
+    print("Basic Factorization")
     res = []
     print(get_factors(n))
     for num in get_factors(n):
@@ -36,3 +39,17 @@ if __name__ == "__main__":
             res.append(num)
     p, q = res
     print(attack(p, q, e))
+    
+    print()
+    print("Pollard Rho Prime Factorization")
+
+    p = PollardRho(n)
+    q = n // p
+    print(attack(p, q, e))
+
+    print()
+    print("Dixon Factorization") # Lates a lot of time
+    print(dixon_factorization(100))
+
+    print()
+    
