@@ -52,4 +52,4 @@ trace("Dixon Factorization")
 print()
 for i in range(1, len(checkpoints)):
     diff = checkpoints[i] - checkpoints[i - 1] 
-    print(f"{methods[i]}: {diff * 1000} µsec")
+    print(f"{methods[i]}: {diff * (10 ** 6)} µsec")
